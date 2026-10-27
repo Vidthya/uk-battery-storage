@@ -81,6 +81,10 @@ All values below are placeholders. None has a source yet, so none should be quot
 |2025|339|35,245|25,531|0.72|143.39|103.87|
 
 
+![Annual battery revenue](revenue_by_year.png)
+
+![Break-even battery cost](breakeven_by_year.png)
+
 
 ###### What the results show
 
