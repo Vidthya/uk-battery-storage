@@ -7,32 +7,32 @@ Original file is located at
     https://colab.research.google.com/drive/1QN-QdQUmqjLUa6ONn8DfiE9Bh892_DOV
 """
 
-!python prices.py
 
-!cp mid_prices.csv /content/drive/MyDrive/mid_prices.csv
+
+#!cp mid_prices.csv /content/drive/MyDrive/mid_prices.csv
 
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.optimize import linprog
 
-from google.colab import drive
-drive.mount('/content/drive')
-!cp mid_prices.csv /content/drive/MyDrive/mid_prices.csv
+#from google.colab import drive
+#drive.mount('/content/drive')
+#!cp mid_prices.csv /content/drive/MyDrive/mid_prices.csv
 
 ##Prices assumed to be in pounds per MWh
 
 power_mw = 1.0
-duration_h = 2.0           ##hours at full power, so energy = power x duration
+duration_h = 2.0           ##hours at full power (energy = power x duration)
 round_trip_eff = 0.85
-annual_degradation = 0.02  ##fraction of capacity lost per year
+annual_degradation = 0.02      ##fraction of capacity lost per year
 lifetime_years = 15
 discount_rate = 0.07
-opex_per_mw_year = 0.0     ##pounds per MW per year; zero means break-even is BEFORE running costs
-max_cycles_per_day = 1.0   ##full discharge cycles allowed per day (wear limit)
+opex_per_mw_year = 0.0     ##pounds per MW per year; zero means break-even is before running costs
+max_cycles_per_day = 1.0   ##full discharge cycles allowed per day 
 
-n_periods = 48             ##half-hours per day
-dt = 0.5                   ##hours per half-hour
+n_periods = 48            ##half-hours per day
+dt = 0.5                ##hours per half-hour
 
 
 def solve_day(prices, power, energy, eff):
